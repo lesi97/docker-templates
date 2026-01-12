@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>AFFiNE</Name>
+  <Repository>ghcr.io/toeverything/affine:stable</Repository>
+  <Registry>https://docs.affine.pro/docs/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Category>Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:3010]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/toeverything/AFFiNE/refs/heads/canary/packages/frontend/apps/electron/resources/icons/icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs>sh -c 'node ./scripts/self-host-predeploy &amp;amp;&amp;amp; node ./dist/main.js'</PostArgs>
+  <CPUset/>
+  <Requires/>
+  <Config Name="WebUI" Target="3010" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">3010</Config>
+  <Config Name="AFFINE_ADMIN_EMAIL" Target="AFFINE_ADMIN_EMAIL" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="AFFINE_ADMIN_PASSWORD" Target="AFFINE_ADMIN_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="AFFINE_SERVER_HOST" Target="AFFINE_SERVER_HOST" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="AFFINE_SERVER_PORT" Target="AFFINE_SERVER_PORT" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="AFFINE_SERVER_HTTPS" Target="AFFINE_SERVER_HTTPS" Default="false" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="MAILER_HOST" Target="MAILER_HOST" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MAILER_PORT" Target="MAILER_PORT" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MAILER_USER" Target="MAILER_USER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MAILER_PASSWORD" Target="MAILER_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MAILER_SENDER" Target="MAILER_SENDER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="REDIS_SERVER_HOST" Target="REDIS_SERVER_HOST" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="REDIS_SERVER_PORT" Target="REDIS_SERVER_PORT" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="NODE_ENV" Target="NODE_ENV" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="NODE_OPTIONS" Target="NODE_OPTIONS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="config" Target="/root/.affine" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="TELEMETRY_ENABLE" Target="TELEMETRY_ENABLE" Default="false" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <TailscaleStateDir/>
+</Container>

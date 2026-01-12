@@ -1,0 +1,21 @@
+services:
+    server:
+        image: ghcr.io/lesi97/lesi.dev:latest
+        ports:
+            - ${WEB_UI_PORT}:8080
+        build:
+            context: .
+            target: final
+        environment:
+            - GO_ENV=production
+            - DATABASE_URL_IPV6=${DATABASE_URL_IPV6}
+            - DATABASE_URL=${DATABASE_URL}
+            - BUNGIE_CLIENT_ID=${BUNGIE_CLIENT_ID}
+            - STEAM_CLIENT_ID=${STEAM_CLIENT_ID}
+            - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+            - DISCORD_USER_ID=${DISCORD_USER_ID}
+            - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+            - PLEX_USERNAME=${PLEX_USERNAME}
+            - PLEX_API_URL=${PLEX_API_URL}
+            - PLEX_X_TOKEN=${PLEX_X_TOKEN}
+            - PLEX_WEBHOOK_SECRET=${PLEX_WEBHOOK_SECRET}
