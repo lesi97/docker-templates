@@ -1,8 +1,13 @@
+# https://github.com/lesi97/lesi.dev
 services:
-    server:
+    lesidev:
+        container_name: lesidev
         image: ghcr.io/lesi97/lesi.dev:latest
         ports:
-            - ${WEB_UI_PORT}:8080
+            - 1537:1537
+        networks:
+            - lesidev
+            - proxy
         build:
             context: .
             target: final
@@ -19,3 +24,10 @@ services:
             - PLEX_API_URL=${PLEX_API_URL}
             - PLEX_X_TOKEN=${PLEX_X_TOKEN}
             - PLEX_WEBHOOK_SECRET=${PLEX_WEBHOOK_SECRET}
+        restart: unless-stopped
+
+networks:
+    lesidev:
+        driver: bridge
+    proxy:
+        external: true

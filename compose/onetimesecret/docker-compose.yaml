@@ -1,3 +1,4 @@
+# https://github.com/onetimesecret/onetimesecret
 services:
     redis:
         image: redis:bookworm

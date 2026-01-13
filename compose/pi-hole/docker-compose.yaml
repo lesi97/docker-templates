@@ -1,0 +1,32 @@
+services:
+    pihole:
+        image: pihole/pihole:latest
+        container_name: pihole
+        restart: unless-stopped
+        cap_add:
+            - NET_ADMIN
+        hostname: pihole
+        environment:
+            TZ: Europe/London
+            PIHOLE_PASSWORD: ${PIHOLE_PASSWORD}
+            PIHOLE_DNS_: '8.8.8.8;8.8.4.4'
+            DNSMASQ_LISTENING: all
+            WEBUIBOXEDLAYOUT: boxed
+            IPv6: 'False'
+            ServerIP: 192.168.0.2
+        volumes:
+            - /srv/pihole/pihole:/etc/pihole
+            - /srv/pihole/dnsmasq.d:/etc/dnsmasq.d
+        networks:
+            lan:
+                ipv4_address: 192.168.0.2
+
+networks:
+    lan:
+        driver: macvlan
+        driver_opts:
+            parent: enp0s31f6
+        ipam:
+            config:
+                - subnet: 192.168.0.0/24
+                  gateway: 192.168.0.1

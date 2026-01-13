@@ -1,0 +1,17 @@
+services:
+    verdaccio:
+        image: verdaccio/verdaccio:latest
+        container_name: verdaccio
+        restart: unless-stopped
+        user: '99:100'
+        ports:
+            - '4873:4873'
+        volumes:
+            - /srv/verdaccio/conf:/verdaccio/conf
+            - /srv/verdaccio/storage:/verdaccio/storage
+        networks:
+            - proxy
+
+networks:
+    proxy:
+        external: true
